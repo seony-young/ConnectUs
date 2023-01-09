@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>::기록하기::</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!--
+  <link rel="stylesheet" type="text/css" href="../../static/css/feed-style.css">
+  -->
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="../../assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="../../assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../../assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="icon" href="../../assets/img/favicons/favicon.ico">  
+</head>
+<body>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>ConnectUs</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <section class="py-1 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">마이어스</h1>
+          <p class="lead text-muted">피드 게시판입니다.</p>
+          <div class="d-grid gap-2 col-4 mx-auto">
+            <button class="btn btn-outline-primary" type="button">글쓰기</button>
+          </div>
+            <a href="#" class="btn btn-primary my-2">피드</a>
+            <a href="#" class="btn btn-secondary my-2">내 발자국</a>
+            <a href="#" class="btn btn-secondary my-2">내 지도</a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <article class="row">
+      <div class="col-4 container" role="main">
+        <!-- enctype="multipart/form-data: 이미지 파일 첨부 -->
+        <form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}/board/saveBoard" enctype="multipart/form-data">
+          <!-- post title -->
+          <div class="mb-3">
+            <label for="title">제목</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="2023-01-01">
+          </div>
+          <!-- post contents -->
+          <div class="mb-3">
+            <label for="content">내용</label>
+            <textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
+          </div>
+          <!-- post place -->
+          <div class="mb-3">
+            <label for="tag">장소</label>
+            <input type="text" class="form-control" name="tag" id="tag" placeholder="장소명 또는 지역명 + 장소명을 입력해 주세요">
+          </div>
+
+          <div class="button">
+            <label for="chooseFile">사진 첨부</label>
+          </div>
+          <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+          <!-- 간격 조정을 위한 p태그와 mt-4 -->
+          <div class="d-flex justify-content-end my-4">
+              <button type="button" class="btn btn-outline-dark w-40 mx-2"
+                onclick="location.href='/'"
+                th:onclick="|location.href='@{/}'|">돌아가기</button>
+              <button type="submit" class="btn btn-secondary w-40">작성하기</button>
+          </div>
+        </form>
+      </div>
+    </article>
+  </main>
+
+  <footer class="text-bg-dark">
+    <ul class="nav justify-content-center mb-3">
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">피드</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">내 발자국</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">지도</a></li>
+    </ul>
+    <p class="text-center text-white">&copy; 2022. Himedia Inc. all rights reserved</p>
+  </footer>
+</body>
+</html>

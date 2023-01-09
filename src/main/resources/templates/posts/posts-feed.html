@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>::Connectus::</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../static/css/feed-style.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="../../assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="../../assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../../assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="icon" href="../../assets/img/favicons/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>ConnectUs</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <section class="py-1 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">마이어스</h1>
+          <p class="lead text-muted">피드 게시판입니다.</p>
+          <div class="d-grid gap-2 col-4 mx-auto">
+              <button class="btn btn-outline-primary"
+              type="button"
+              onclick="location.href='/visit/write'">
+                글쓰기
+              </button>
+          </div>
+            <a href="#" class="btn btn-primary my-2">피드</a>
+            <a href="#" class="btn btn-secondary my-2">내 발자국</a>
+            <a href="#" class="btn btn-secondary my-2">내 지도</a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
+          
+          <!-- d-flex justify-content-center: 하위 요소 가운데 정렬 -->
+          <div class="row col d-flex justify-content-center">
+            <!-- 상위 요소에 row 설정 후 하위 요소 너비 col-6 지정 -->
+            <div class="col-6 card shadow-sm" th:each="post: ${posts}">
+              <svg class="pt-3 bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <h5 class="card-title">UserName</h5>
+                <p class="card-text" th:text="${post.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">☆ 저장하기</button>
+                  </div>
+                  <small class="text-muted">1 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-bg-dark">
+    <ul class="nav justify-content-center mb-3">
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">피드</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">내 발자국</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">내 지도</a></li>
+    </ul>
+    <p class="text-center text-white">&copy; 2022. Himedia Inc. all rights reserved</p>
+  </footer>
+
+  <!--
+    부트스트랩 애니메이션
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  -->
+</body>
+</html>

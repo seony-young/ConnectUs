@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  th:fragment="layout(title, container)">
+
+<!-- [head] -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title th:replace="${title}">title</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+  <link href="../../static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- 페이지 개별 스타일 때문에 고민중 -->
+  <link rel="stylesheet" type="text/css" href="../../static/css/feed-style.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="../../assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="../../assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../../assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="icon" href="../../assets/img/favicons/favicon.ico">
+</head>
+
+<!-- [body] -->
+<body id="body">
+  <div th:replace="fragments/header::header">header</div>
+
+  <div th:insert="${container}"
+    id="container" class="container-md" style="max-width: 800px">container</div>
+
+  <div th:replace="fragments/footer::footer">footer</div>
+</body>
+</html>

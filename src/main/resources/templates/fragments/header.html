@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="header">
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>ConnectUs</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+
+  <section class="py-1 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">마이어스</h1>
+        <p class="lead text-muted">피드 게시판입니다.</p>
+        <div class="d-grid gap-2 col-4 mx-auto">
+          <button class="btn btn-outline-primary" type="button">글쓰기</button>
+        </div>
+        <p>
+          <a href="#" class="btn btn-primary my-2">피드</a>
+          <a href="#" class="btn btn-secondary my-2">내 발자국</a>
+          <a href="#" class="btn btn-secondary my-2">내 지도</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</header>
